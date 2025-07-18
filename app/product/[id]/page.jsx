@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import TopNavBar from '@/components/TopNavBar';
 import CategoryBar from '@/components/CategoryBar';
 import SectionHeading from '@/components/SectionHeading';
+import gsap from 'gsap';
 
 export default function ProductDetailPage() {
   const [selectedImage, setSelectedImage] = useState(0);
@@ -131,11 +132,11 @@ export default function ProductDetailPage() {
   }));
 
   // Inline ProductCard for recommendations
-  function ProductCard({ product }) {
+  function ProductCard({ product, className = '', style = {} }) {
     return (
-      <div className="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all flex flex-col overflow-hidden group">
+      <div className={`bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-lg transition-all flex flex-col overflow-hidden group ${className}`} style={style}>
         <div className="relative w-full aspect-[4/3] bg-gray-50 flex items-center justify-center">
-          <img src={product.image} alt={product.name} className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300" />
+          <img src={product.image} alt={product.name} className="object-cover w-full h-72 group-hover:scale-105 transition-transform duration-300" />
           {product.assured && (
             <span className="absolute top-2 left-2 bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded-full shadow">Assured</span>
           )}
@@ -172,6 +173,33 @@ export default function ProductDetailPage() {
     );
   }
 
+  // GSAP animation effect
+  useEffect(() => {
+    // Main product section
+    gsap.from('.gsap-main-section', {
+      opacity: 0,
+      y: 40,
+      duration: 0.7,
+      ease: 'power3.out',
+    });
+    // Product image
+    gsap.from('.gsap-product-image', {
+      opacity: 0,
+      y: 40,
+      duration: 0.7,
+      delay: 0.15,
+      ease: 'power3.out',
+    });
+    // Product details
+    gsap.from('.gsap-product-details', {
+      opacity: 0,
+      y: 40,
+      duration: 0.7,
+      delay: 0.3,
+      ease: 'power3.out',
+    });
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-yellow-50 w-full overflow-x-hidden">
       <TopNavBar />
@@ -197,14 +225,14 @@ export default function ProductDetailPage() {
       </div>
       {/* Main Product Section */}
       <main className="w-full px-2 sm:px-4 lg:mx-[50px] py-6 flex flex-col gap-8">
-        <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 md:p-8 flex flex-col lg:flex-row gap-8">
+        <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 md:p-8 flex flex-col lg:flex-row gap-8 gsap-main-section">
           {/* Product Images */}
-          <div className="flex-1 min-w-[320px] max-w-lg mx-auto lg:mx-0">
+          <div className="flex-1 min-w-[320px] max-w-lg mx-auto lg:mx-0 gsap-product-image">
             <div className="rounded-lg overflow-hidden bg-gray-50 aspect-square flex items-center justify-center">
               <img 
                 src={product.images[selectedImage]} 
                 alt={product.title} 
-                className="object-contain w-full h-full"
+                className="object-contain w-full h-full" 
               />
             </div>
             <div className="flex mt-4 space-x-3 overflow-x-auto py-2">
@@ -230,7 +258,7 @@ export default function ProductDetailPage() {
             </div>
           </div>
           {/* Product Details */}
-          <div className="flex-1 min-w-[320px]">
+          <div className="flex-1 min-w-[320px] gsap-product-details">
             <SectionHeading title={product.title} />
             <p className="text-gray-600 mt-1 text-base font-medium">{product.subtitle}</p>
             <div className="mt-4 flex items-center flex-wrap gap-2">
@@ -407,8 +435,11 @@ export default function ProductDetailPage() {
         <div className="mt-12">
           <SectionHeading title="You may also like" />
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 w-full">
-            {recommendations.map(product => (
-              <ProductCard key={product.id} product={product} />
+            {recommendations.map((product, idx) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
             ))}
           </div>
         </div>

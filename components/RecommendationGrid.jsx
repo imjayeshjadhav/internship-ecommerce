@@ -9,50 +9,9 @@ export default function RecommendationGrid({ sections, banner }) {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animate product cards
-      if (cardsRef.current.length) {
-        cardsRef.current.forEach((card, i) => {
-          gsap.fromTo(card, 
-            { opacity: 0, y: 40 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.7,
-              delay: i * 0.08,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: sectionRef.current,
-                start: 'top 90%',
-                toggleActions: 'play none none reset',
-              }
-            }
-          );
-        });
-      }
-
-      // Animate banner
-      if (bannerRef.current) {
-        gsap.fromTo(
-          bannerRef.current,
-          { opacity: 0, y: 60 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: 'back.out(1.2)',
-            scrollTrigger: {
-              trigger: bannerRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reset',
-            }
-          }
-        );
-      }
-    }, sectionRef);
-
+    // Remove GSAP animation for cards and banner
+    // No animation logic here
     return () => {
-      ctx.revert();
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);

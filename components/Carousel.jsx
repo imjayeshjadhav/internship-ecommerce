@@ -111,7 +111,7 @@ function Carousel({ images = defaultImages, slidesContent = [] }) {
   const content = slidesContent[current % slidesContent.length] || {};
 
   return (
-    <div className="w-full aspect-[16/7] sm:aspect-[16/6] md:aspect-[16/5] lg:aspect-[16/4] rounded-none md:rounded-3xl overflow-hidden shadow-2xl relative group min-h-[260px] sm:min-h-[300px] md:min-h-[320px] lg:min-h-[320px] max-h-[520px]">
+    <div className="w-full aspect-[16/8] sm:aspect-[16/7] md:aspect-[16/6] lg:aspect-[16/5] rounded-none md:rounded-3xl overflow-hidden shadow-2xl relative group min-h-[320px] sm:min-h-[380px] md:min-h-[420px] lg:min-h-[480px] max-h-[700px]">
       {/* Background image */}
       <div className="absolute inset-0">
         <img

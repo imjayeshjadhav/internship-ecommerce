@@ -51,30 +51,9 @@ export default function HorizontalProductCarousel({ title, products }) {
   }, []);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      if (cardsRef.current) {
-        cardsRef.current.forEach((card, i) => {
-          gsap.fromTo(card, 
-            { opacity: 0, y: 60 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              delay: i * 0.1,
-              ease: 'back.out(1.1)',
-              scrollTrigger: {
-                trigger: containerRef.current,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse',
-              }
-            }
-          );
-        });
-      }
-    }, containerRef);
-
+    // Remove GSAP animation for cards
+    // No animation logic here
     return () => {
-      ctx.revert();
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);
@@ -229,11 +208,3 @@ export default function HorizontalProductCarousel({ title, products }) {
   );
 }
 
-// Add this to your CSS for scrollbar hiding
-// .scrollbar-hide::-webkit-scrollbar {
-//   display: none;
-// }
-// .scrollbar-hide {
-//   -ms-overflow-style: none;
-//   scrollbar-width: none;
-// }

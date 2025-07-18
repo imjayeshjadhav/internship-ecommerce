@@ -109,42 +109,34 @@ export default function HomePage() {
         <div ref={testimonialsRef} className="w-full">
           <Testimonials />
         </div>
-        {/* Newsletter Signup Section (placeholder) */}
-        <div ref={newsletterRef} className="w-full max-w-2xl mx-auto py-12 px-4 md:px-0">
-          <div className="bg-white/80 backdrop-blur-md border border-yellow-100 rounded-2xl shadow-lg p-8 flex flex-col items-center gap-4">
-            <h3 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-500 via-orange-400 to-yellow-700 bg-clip-text text-transparent mb-2 text-center">Stay Updated!</h3>
-            <p className="text-yellow-900 mb-4 text-center">Subscribe to our newsletter for exclusive offers, new arrivals, and more.</p>
-            <form className="flex flex-col sm:flex-row gap-2 w-full max-w-md">
-              <input type="email" placeholder="Enter your email" className="flex-1 rounded-full px-5 py-2 border border-yellow-200 bg-yellow-50 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-base placeholder:text-yellow-400 shadow-sm" />
-              <button type="submit" className="rounded-full px-6 py-2 bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-bold shadow hover:scale-105 transition">Subscribe</button>
-            </form>
+        {/* Trust Badges/Brand Logos Section and Final Animated CTA Banner side by side on desktop */}
+        <div className="w-full max-w-6xl mx-auto flex flex-col md:flex-row items-stretch gap-8 py-6">
+          {/* Trust Badges/Brand Logos - left */}
+          <div ref={trustRef} className="flex-1 flex flex-col justify-center items-center bg-white rounded-xl shadow p-4 gap-2 min-w-[220px]">
+            <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 md:gap-6">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-6 sm:h-7 md:h-8 grayscale hover:grayscale-0 transition" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" className="h-6 sm:h-7 md:h-8 grayscale hover:grayscale-0 transition" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/PayPal_Logo.png" alt="PayPal" className="h-6 sm:h-7 md:h-8 grayscale hover:grayscale-0 transition" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/RuPay_Logo.png" alt="RuPay" className="h-6 sm:h-7 md:h-8 grayscale hover:grayscale-0 transition" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Google_Pay_Logo.svg" alt="Google Pay" className="h-6 sm:h-7 md:h-8 grayscale hover:grayscale-0 transition" />
+            </div>
+            <div className="flex flex-wrap justify-center gap-1.5 mt-1">
+              <span className="inline-block bg-yellow-400/90 text-yellow-900 font-bold text-xs md:text-sm px-2 py-0.5 rounded shadow whitespace-nowrap">100% Secure Payments</span>
+              <span className="inline-block bg-yellow-400/90 text-yellow-900 font-bold text-xs md:text-sm px-2 py-0.5 rounded shadow whitespace-nowrap">Trusted by 1M+ Customers</span>
+            </div>
           </div>
-        </div>
-        {/* Trust Badges/Brand Logos Section (placeholder) */}
-        <div ref={trustRef} className="w-full max-w-4xl mx-auto py-8 flex flex-col items-center gap-4">
-          <div className="flex flex-wrap justify-center gap-6">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-8 grayscale hover:grayscale-0 transition" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" className="h-8 grayscale hover:grayscale-0 transition" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/PayPal_Logo.png" alt="PayPal" className="h-8 grayscale hover:grayscale-0 transition" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/RuPay_Logo.png" alt="RuPay" className="h-8 grayscale hover:grayscale-0 transition" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Google_Pay_Logo.svg" alt="Google Pay" className="h-8 grayscale hover:grayscale-0 transition" />
-          </div>
-          <div className="flex gap-2 mt-2">
-            <span className="inline-block bg-yellow-400/90 text-yellow-900 font-bold text-xs md:text-sm px-2 py-0.5 rounded shadow">100% Secure Payments</span>
-            <span className="inline-block bg-yellow-400/90 text-yellow-900 font-bold text-xs md:text-sm px-2 py-0.5 rounded shadow">Trusted by 1M+ Customers</span>
-          </div>
-        </div>
-        {/* Final Animated CTA Banner (placeholder) */}
-        <div ref={ctaRef} className="w-full max-w-5xl mx-auto py-12 px-4 md:px-0 relative">
-          <div className="absolute inset-0 -z-10">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-24 md:h-32 lg:h-40">
-              <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-current text-yellow-100" />
-            </svg>
-          </div>
-          <div className="relative z-10 bg-gradient-to-br from-yellow-50 via-orange-50 to-yellow-100 rounded-2xl shadow-lg p-8 flex flex-col items-center gap-4 border border-yellow-100">
-            <h3 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-yellow-500 via-orange-400 to-yellow-700 bg-clip-text text-transparent mb-2 text-center">Ready to Shop the Best Deals?</h3>
-            <p className="text-yellow-900 mb-4 text-center text-lg">Join ShopEase today and enjoy exclusive offers, fast delivery, and a premium shopping experience.</p>
-            <a href="#" className="rounded-full px-8 py-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-bold shadow hover:scale-105 transition text-lg">Start Shopping</a>
+          {/* Final Animated CTA Banner - right */}
+          <div ref={ctaRef} className="flex-1 flex flex-col justify-center items-center bg-gradient-to-br from-yellow-50 via-orange-50 to-yellow-100 rounded-xl shadow-md p-4 border border-yellow-100 min-w-[220px] relative overflow-hidden">
+            <div className="absolute inset-0 -z-10">
+              <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-16 md:h-24 lg:h-28">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="fill-current text-yellow-100" />
+              </svg>
+            </div>
+            <div className="relative z-10 w-full flex flex-col items-center gap-2">
+              <h3 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-500 via-orange-400 to-yellow-700 bg-clip-text text-transparent mb-1 text-center">Ready to Shop the Best Deals?</h3>
+              <p className="text-yellow-900 mb-2 text-center text-base md:text-lg">Join ShopEase today and enjoy exclusive offers, fast delivery, and a premium shopping experience.</p>
+              <a href="#" className="rounded-full px-6 py-2 bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-bold shadow hover:scale-105 transition text-base">Start Shopping</a>
+            </div>
           </div>
         </div>
       </main>

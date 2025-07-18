@@ -23,7 +23,7 @@ const features = [
 
 export default function Features({ sectionRef }) {
   return (
-    <section ref={sectionRef} className="w-full py-8 px-2 sm:px-4 md:px-8">
+    <section ref={sectionRef} className="w-full py-2 px-2 sm:px-4 md:px-8">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-5">
         {features.map((f, i) => (
           <div key={i} className="flex flex-col items-center bg-white/70 backdrop-blur-md border border-yellow-200 rounded-xl shadow p-3 sm:p-4 text-center hover:shadow-lg hover:border-yellow-400 transition-all duration-200">

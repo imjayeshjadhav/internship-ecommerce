@@ -129,7 +129,7 @@ function ProductCard({ product }) {
         <img 
           src={product.image} 
           alt={product.name} 
-          className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-300" 
+          className="object-cover w-full h-72 group-hover:scale-105 transition-transform duration-300" 
         />
         {product.assured && (
           <span className="absolute top-2 left-2 bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded-full shadow">Assured</span>
