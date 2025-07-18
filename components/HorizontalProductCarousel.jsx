@@ -51,9 +51,30 @@ export default function HorizontalProductCarousel({ title, products }) {
   }, []);
 
   useEffect(() => {
-    // Remove GSAP animation for cards
-    // No animation logic here
+    const ctx = gsap.context(() => {
+      if (cardsRef.current) {
+        cardsRef.current.forEach((card, i) => {
+          gsap.fromTo(card, 
+            { opacity: 0, y: 60 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: i * 0.1,
+              ease: 'back.out(1.1)',
+              scrollTrigger: {
+                trigger: containerRef.current,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+              }
+            }
+          );
+        });
+      }
+    }, containerRef);
+
     return () => {
+      ctx.revert();
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);

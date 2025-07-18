@@ -71,7 +71,7 @@ export default function HomePage() {
             'https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/2b7e2e8defb1b2c951.jpg?q=20',
             'https://rukminim2.flixcart.com/fk-p-flap/1600/270/image/3c7e2e8defb1b2c951.jpg?q=20',
           ]} />
-          <div className="w-full flex justify-center">
+          <div className="w-full flex justify-center py-4">
             <div className="w-full bg-white/70 backdrop-blur-md border-l-4 border-r-4 border-yellow-300 py-4 px-4 md:px-8 rounded-xl shadow text-center mx-0">
               <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-yellow-500 via-orange-400 to-yellow-700 bg-clip-text text-transparent mb-2 font-montserrat tracking-tight">
                 Welcome to ShopEase

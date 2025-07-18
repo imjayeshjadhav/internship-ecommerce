@@ -111,7 +111,7 @@ function Carousel({ images = defaultImages, slidesContent = [] }) {
   const content = slidesContent[current % slidesContent.length] || {};
 
   return (
-    <div className="w-full aspect-[16/8] sm:aspect-[16/7] md:aspect-[16/6] lg:aspect-[16/5] rounded-none md:rounded-3xl overflow-hidden shadow-2xl relative group min-h-[320px] sm:min-h-[380px] md:min-h-[420px] lg:min-h-[480px] max-h-[700px]">
+    <div className="w-full aspect-[16/8] sm:aspect-[16/7] md:aspect-[16/6] lg:aspect-[16/5] rounded-none md:rounded-3xl overflow-hidden shadow-2xl relative group min-h-[320px] sm:min-h-[420px] md:min-h-[420px] lg:min-h-[480px] max-h-[700px]">
       {/* Background image */}
       <div className="absolute inset-0">
         <img
@@ -126,7 +126,7 @@ function Carousel({ images = defaultImages, slidesContent = [] }) {
       {/* Overlay content */}
       <div 
         ref={contentRef}
-        className="absolute inset-0 flex flex-col items-center justify-end pb-16 sm:pb-24 md:pb-32 text-center px-2 sm:px-8 md:px-16"
+        className="absolute inset-0 flex flex-col items-center justify-center text-center px-2 sm:px-8 md:px-16"
       >
         <div className="max-w-3xl w-full">
           {content.headline && (
