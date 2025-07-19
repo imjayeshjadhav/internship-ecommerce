@@ -14,33 +14,32 @@ const categories = [
 import { useState, useEffect } from 'react';
 
 export default function CategoryBar() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const visibleCategories = isMobile ? categories.slice(0, 3) : categories;
-
   return (
     <nav className="w-full bg-white/90 backdrop-blur-md border-b border-yellow-200 shadow-sm sticky top-0 z-30">
-      <div className="grid grid-cols-3 xs:grid-cols-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-10 w-full px-2 sm:px-6 py-3">
-        {visibleCategories.map((cat, i) => (
-          <div
-            key={i}
-            className="flex flex-col items-center justify-center group cursor-pointer transition-all hover:scale-105 min-w-0"
-          >
-            <div className="bg-yellow-100 group-hover:bg-yellow-200 p-2 rounded-full shadow-sm transition-colors duration-300">
-              {cat.icon}
-            </div>
-            <span className="mt-1 text-xs sm:text-sm font-medium text-yellow-800 group-hover:text-yellow-700 text-center whitespace-nowrap transition-colors duration-300">
-              {cat.label}
-            </span>
+      {/* Scrollable container for all screen sizes */}
+      <div className="relative">
+        <div className="overflow-x-auto scrollbar-hide py-3">
+          {/* Grid container that expands to fit content */}
+          <div className="grid grid-cols-10 min-w-max w-full px-2 sm:px-6 gap-4">
+            {categories.map((cat, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center justify-center group cursor-pointer transition-all hover:scale-105"
+              >
+                <div className="bg-yellow-100 group-hover:bg-yellow-200 p-2 rounded-full shadow-sm transition-colors duration-300">
+                  {cat.icon}
+                </div>
+                <span className="mt-1 text-xs sm:text-sm font-medium text-yellow-800 group-hover:text-yellow-700 text-center whitespace-nowrap transition-colors duration-300">
+                  {cat.label}
+                </span>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+        
+        {/* Fade effect for scrollable edges */}
+        <div className="absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-white/90 to-transparent pointer-events-none"></div>
+        <div className="absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-white/90 to-transparent pointer-events-none"></div>
       </div>
     </nav>
   );

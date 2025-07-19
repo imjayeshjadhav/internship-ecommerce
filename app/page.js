@@ -59,7 +59,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-pink-100 via-orange-50 to-yellow-100 overflow-x-hidden">
+    <div className="relative bg-gradient-to-br from-pink-100 via-orange-50 to-yellow-100 overflow-x-hidden overflow-y-hidden">
       <TopNavBar />
       <CategoryBar />
       <div className="absolute top-0 left-0 w-72 h-72 bg-yellow-200/40 rounded-full blur-3xl z-0" style={{filter:'blur(80px)',top:'-6rem',left:'-6rem'}} />
